@@ -1,0 +1,166 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+header nav {
+    top: 0;
+    left: 0;
+    min-height: 100px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transition: .5s;
+    margin-right: 12.5%;
+    margin-left: 12.5%;
+}
+
+    header nav .logo {
+        float: left;
+    }
+
+        header nav .logo:hover {
+            cursor: pointer;
+        }
+
+        header nav .logo img {
+            height: 100px;
+            transition: .5s;
+        }
+
+    header nav ul {
+        float: right;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+header .action {
+    height: 50px;
+}
+    header .action span {
+        margin-left:15px;
+        line-height:10px;
+    }
+    header .action a {
+        width:100%;
+        line-height: 40px;
+        color: black;
+        text-decoration: none;
+        margin-right: 15px !important;
+    }
+
+        header .action a:hover {
+            color: #8cc63f;
+            text-decoration: none;
+        }
+
+header .cart {
+    height: 50px;
+    margin-top: 10px;
+    line-height: 40px;
+    color: black;
+    text-transform: uppercase;
+    text-align: left;
+    padding-left: 10px;
+}
+
+    header .cart :hover {
+        color: #8cc63f;
+        cursor: pointer;
+        text-decoration:none;
+    }
+
+    header .cart a {
+        color: black;
+        height:40px;
+        line-height:40px;
+    }
+
+header .search {
+    background-color: #8cc63f;
+    height: 50px;
+    border: solid 2px #8cc63f;
+    border-radius: 999px;
+    padding-left: 0;
+    padding-right: 10px;
+    display: flex;
+}
+
+    header .search a {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+        header .search a:hover {
+            text-decoration: none;
+        }
+
+header .branch {
+    height: 50px;
+    padding-top: 10px;
+    line-height: 40px;
+}
+
+    header .branch div {
+        border: solid 1px #8cc63f;
+        border-radius: 999px;
+        text-align: center;
+        color: #8cc63f;
+    }
+
+        header .branch div:hover {
+            cursor: pointer;
+            color: white;
+            background-color: #8cc63f;
+        }
+
+header .search_bar {
+    flex: 75%;
+    border-radius: inherit;
+    background-color: white;
+    border: solid 5px white;
+}
+
+header .search_btn {
+    width: 10%;
+    height: 100%;
+    border-radius: inherit;
+    border: none;
+    float: right;
+    background-color: #f1c249;
+}
+
+    header .search_btn .fa-search {
+        color: white;
+    }
+
+header .search_value {
+    height: 100%;
+    width: 90%;
+    border-radius: inherit;
+    border: none;
+    background-color: white;
+}
+
+    header .search_value:focus {
+        outline: none;
+    }
+
+header .hotline {
+    flex: 25%;
+    height: inherit;
+    line-height: 50px;
+    padding-left: 10px;
+    color: white;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
