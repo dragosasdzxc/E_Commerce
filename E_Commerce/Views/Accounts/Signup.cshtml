@@ -130,6 +130,7 @@
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script type="text/javascript">
     let validForm = false;
+
     function showPassword(event) {
         var x = document.getElementById("password");
         if (x.type === "password") {
@@ -138,6 +139,7 @@
             x.type = "password";
         }
     }
+
     function confirmPassword() {
         let pass1 = $("#password").val();
         let pass2 = $("#confirm-password").val();
@@ -151,6 +153,7 @@
             $(".confirm-password-message").text("Password does not match!");
         }
     }
+
     function loadListDistrict(event) {
         let id = $(event).val();
         let district = $("#district");
@@ -177,6 +180,7 @@
             },
         });
     }
+
     function loadListWard(event) {
         let id = $(event).val();
         let ward = $("#ward");
@@ -200,6 +204,7 @@
             },
         });
     }
+
     function signupDB(event) {
         let full_name = $(event).closest("form").find("#full_name").val();
         let phone_number = $(event).closest("form").find("#phone_number").val();
