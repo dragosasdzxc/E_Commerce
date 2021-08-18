@@ -1,0 +1,12 @@
+C:\Users\Nguyen Thai Duong\source\repos\WebApplication3\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\Nguyen Thai Duong\source\repos\WebApplication3\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Nguyen Thai Duong\source\repos\WebApplication3\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Nguyen Thai Duong\source\repos\WebApplication3\DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Nguyen Thai Duong\source\repos\WebApplication3\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nguyen Thai Duong\source\repos\WebApplication3\DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Nguyen Thai Duong\source\repos\WebApplication3\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nguyen Thai Duong\source\repos\WebApplication3\DataAccessLayer\obj\Debug\DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\Nguyen Thai Duong\source\repos\WebApplication3\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Nguyen Thai Duong\source\repos\WebApplication3\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+C:\Users\Nguyen Thai Duong\source\repos\WebApplication3\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Nguyen Thai Duong\source\repos\WebApplication3\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

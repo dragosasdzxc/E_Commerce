@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bepbanhlauModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bill">
+    <Key>
+      <PropertyRef Name="id_bill" />
+    </Key>
+    <Property Name="id_bill" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="user_id" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="status_id" Type="nvarchar" MaxLength="100" />
+    <Property Name="total" Type="int" />
+    <Property Name="description" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="bill_detail">
+    <Key>
+      <PropertyRef Name="id_bill_detail" />
+    </Key>
+    <Property Name="id_bill_detail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_id" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="product_id" Type="nvarchar" MaxLength="100" />
+    <Property Name="quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="branch">
+    <Key>
+      <PropertyRef Name="id_branch" />
+    </Key>
+    <Property Name="id_branch" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="name_branch" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" />
+    <Property Name="phone_number" Type="nvarchar" MaxLength="100" />
+    <Property Name="description" Type="nvarchar" MaxLength="200" />
+    <Property Name="active" Type="bit" />
+  </EntityType>
+  <EntityType Name="cart">
+    <Key>
+      <PropertyRef Name="id_cart" />
+    </Key>
+    <Property Name="id_cart" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="product_id" Type="nvarchar" MaxLength="100" />
+    <Property Name="user_id" Type="nvarchar" MaxLength="100" />
+    <Property Name="quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="id_category" />
+    </Key>
+    <Property Name="id_category" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="name_category" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="200" />
+    <Property Name="active" Type="bit" />
+  </EntityType>
+  <EntityType Name="group">
+    <Key>
+      <PropertyRef Name="id_group" />
+    </Key>
+    <Property Name="id_group" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="name_group" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="active" Type="bit" />
+  </EntityType>
+  <EntityType Name="news">
+    <Key>
+      <PropertyRef Name="id_news" />
+    </Key>
+    <Property Name="id_news" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="user_id" Type="nvarchar" MaxLength="100" />
+    <Property Name="header_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="contents" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="id_product" />
+    </Key>
+    <Property Name="id_product" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="name_product" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="sale" Type="int" />
+    <Property Name="date_create" Type="bigint" />
+    <Property Name="branch_id" Type="nvarchar" MaxLength="100" />
+    <Property Name="status_id" Type="nvarchar" MaxLength="100" />
+    <Property Name="active" Type="bit" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="image" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="id_role" />
+    </Key>
+    <Property Name="id_role" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="name_role" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="active" Type="bit" />
+  </EntityType>
+  <EntityType Name="status">
+    <Key>
+      <PropertyRef Name="id_status" />
+    </Key>
+    <Property Name="id_status" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="name_status" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="active" Type="nvarchar" MaxLength="100" />
+    <Property Name="group_id" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sub_category">
+    <Key>
+      <PropertyRef Name="id_sub_category" />
+    </Key>
+    <Property Name="id_sub_category" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="name_sub_category" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="category_id" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="100" />
+    <Property Name="active" Type="bit" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="full_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="phone_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="city" Type="nvarchar" MaxLength="100" />
+    <Property Name="district" Type="nvarchar" MaxLength="100" />
+    <Property Name="ward" Type="nvarchar" MaxLength="100" />
+    <Property Name="address" Type="nvarchar" MaxLength="200" />
+    <Property Name="role_id" Type="nvarchar" MaxLength="100" />
+    <Property Name="status_id" Type="nvarchar" MaxLength="100" />
+    <Property Name="branch_id" Type="nvarchar" MaxLength="100" />
+    <Property Name="activation_code" Type="nvarchar(max)" />
+    <Property Name="active" Type="bit" />
+  </EntityType>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="bepbanhlauModelStoreContainer">
+    <EntitySet Name="bill" EntityType="Self.bill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bill_detail" EntityType="Self.bill_detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="branch" EntityType="Self.branch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cart" EntityType="Self.cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="group" EntityType="Self.group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="news" EntityType="Self.news" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="status" EntityType="Self.status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sub_category" EntityType="Self.sub_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
