@@ -60,7 +60,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.city, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.city, new SelectList(ViewBag.jsonListCity, "code", "name"), "Select province/city...", htmlAttributes: new { @class = "form-control city", @onchange = "loadListDistrict(this)", @required = "required" })
+                @Html.DropDownListFor(model => model.city, new SelectList(ViewBag.jsonListCity, "code", "name"), "Select province/city...", htmlAttributes: new { @class = "form-control city", @onchange = "loadListDistrict(this)", @required = "required", @value = "" })
                 @Html.ValidationMessageFor(model => model.city, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -68,7 +68,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.district, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.district, new List<SelectListItem> { new SelectListItem { Text = "Select district...", Value = "" } }, htmlAttributes: new { @class = "form-control district", @onchange = "loadListWard(this)", @required = "required" })
+                @Html.DropDownListFor(model => model.district, new List<SelectListItem> { new SelectListItem { Text = "Select district...", Value = "" } }, htmlAttributes: new { @class = "form-control district", @onchange = "loadListWard(this)", @required = "required", @value = "" })
                 @Html.ValidationMessageFor(model => model.district, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -76,7 +76,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ward, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.ward, new List<SelectListItem> { new SelectListItem { Text = "Select ward...", Value = "" } }, htmlAttributes: new { @class = "form-control ward", @required = "required" })
+                @Html.DropDownListFor(model => model.ward, new List<SelectListItem> { new SelectListItem { Text = "Select ward...", Value = "" } }, htmlAttributes: new { @class = "form-control ward", @required = "required", @value = "" })
                 @Html.ValidationMessageFor(model => model.ward, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -92,7 +92,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.role_name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.role_name, new SelectList(ViewBag.listRole, "id_role", "name_role"), "Select role...", htmlAttributes: new { @class = "form-control role", @required = "required" })
+                @Html.DropDownListFor(model => model.role_name, new SelectList(ViewBag.listRole, "id_role", "name_role"), "Select role...", htmlAttributes: new { @class = "form-control role", @required = "required", @value = "" })
                 @Html.ValidationMessageFor(model => model.role_name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -100,7 +100,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.status_name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.status_name, new SelectList(ViewBag.listStatus, "id_status", "name_status"), "Select status...", htmlAttributes: new { @class = "form-control status", @required = "required" })
+                @Html.DropDownListFor(model => model.status_name, new SelectList(ViewBag.listStatus, "id_status", "name_status"), "Select status...", htmlAttributes: new { @class = "form-control status", @required = "required", @value = "" })
                 @Html.ValidationMessageFor(model => model.status_name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -108,14 +108,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.branch_name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.branch_name, new SelectList(ViewBag.listBranch, "id_branch", "name_branch"), "Select branch...", htmlAttributes: new { @class = "form-control branch", @required = "required" })
+                @Html.DropDownListFor(model => model.branch_name, new SelectList(ViewBag.listBranch, "id_branch", "name_branch"), "Select branch...", htmlAttributes: new { @class = "form-control branch", @required = "required", @value = "" })
                 @Html.ValidationMessageFor(model => model.branch_name, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" onclick="signupDB(this)" />
+                <input type="button" value="Create" class="btn btn-default" onclick="signupDB(this)" />
             </div>
         </div>
     </div>
@@ -140,26 +140,12 @@
         }
     }
 
-    function confirmPassword() {
-        let pass1 = $("#password").val();
-        let pass2 = $("#confirm-password").val();
-        if (pass1 == pass2) {
-            $(".confirm-password-message").attr("style", "color:green");
-            validForm = true;
-            $(".confirm-password-message").text("Password match!");
-        } else {
-            $(".confirm-password-message").attr("style", "color:red");
-            validForm = false;
-            $(".confirm-password-message").text("Password does not match!");
-        }
-    }
-
     function loadListDistrict(event) {
         let id = $(event).val();
         let district = $("#district");
         let ward = $("#ward");
-        let defaultOptionDistrict = "<option value= ''>Select district...</option>";
-        let defaultOptionWard = "<option value= ''>Select ward...</option>";
+        let defaultOptionDistrict = "<option value>Select district...</option>";
+        let defaultOptionWard = "<option value>Select ward...</option>";
         district.empty().append(defaultOptionDistrict);
         ward.empty().append(defaultOptionWard);
         $.ajax({
@@ -184,7 +170,7 @@
     function loadListWard(event) {
         let id = $(event).val();
         let ward = $("#ward");
-        let defaultOption = "<option value= ''>Select ward...</option>";
+        let defaultOption = "<option value>Select ward...</option>";
         ward.empty().append(defaultOption);
         $.ajax({
             //url is which request to sent
@@ -205,49 +191,85 @@
         });
     }
 
-    function signupDB(event) {
-        let full_name = $(event).closest("form").find("#full_name").val();
-        let phone_number = $(event).closest("form").find("#phone_number").val();
-        let email = $(event).closest("form").find("#email").val();
-        let password = $(event).closest("form").find("#password").val();
-        let city = $(event).closest("form").find("#city").val();
-        let district = $(event).closest("form").find("#district").val();
-        let ward = $(event).closest("form").find("#ward").val();
-        let address = $(event).closest("form").find("#address").val();
-        let role_id = $(event).closest("form").find("#role_name").val();
-        let status_id = $(event).closest("form").find("#status_name").val();
-        let branch_id = $(event).closest("form").find("#branch_name").val();
-        let data = {
-            full_name: full_name,
-            phone_number: phone_number,
-            email: email,
-            password: password,
-            city: city,
-            district: district,
-            ward: ward,
-            address: address,
-            role_name: role_id,
-            status_name: status_id,
-            branch_name: branch_id
-        };
-        $.ajax({
-            //url is which request to sent
-            url: "/Accounts/SignupDB",
-            //dataType is type of response to receive back, ex: JSON,XML,...
-            dataType: "text",
-            //data is parameters to send with url, ex: {id: "user1"}
-            data: data,
-            //type is request type, ex: GET to retrieve data, POST to save data,...
-            type: "POST",
-            //when request success, it's will execute function write inside 'success' block,
-            //data is which retrieved(if exists) from request
-            success: function (jqXHR) {
-                alert(jqXHR.statusText);
-            },
-            error: function (jqXHR) {
-                alert(jqXHR.statusText);
+    function confirmPassword() {
+        let pass1 = $("#password").val();
+        let pass2 = $("#confirm-password").val();
+        if (pass1 == pass2) {
+            $(".confirm-password-message").attr("style", "color:green");
+            validForm = true;
+            $(".confirm-password-message").text("Password match!");
+        } else {
+            $(".confirm-password-message").attr("style", "color:red");
+            validForm = false;
+            $(".confirm-password-message").text("Password does not match!");
+        }
+        return validForm;
+    }
+
+    function checkValidForm() {
+        $(".form-horizontal .form-control").each(function () {
+            if ($.trim($(this).val()).length == 0 || $.trim($(this).val()) == null || $.trim($(this).val()) == "" || $.trim($(this).val()) == undefined) {
+                //$(this).addClass("input-validation-error");
+                validForm = false;
+            } else {
+                //$(this).removeClass("input-validation-error");
+                validForm = true;
+            }
+            if (validForm == false) {
+                return false;
+            } else {
             }
         });
+        return validForm;
+    }
+
+    function signupDB(event) {
+        confirmPassword();
+        checkValidForm();
+        console.log(validForm);
+        if (validForm == false) {
+            alert("Invalid form, please check form and try again!");
+        } else {
+            let full_name = $(event).closest("form").find("#full_name").val();
+            let phone_number = $(event).closest("form").find("#phone_number").val();
+            let email = $(event).closest("form").find("#email").val();
+            let password = $(event).closest("form").find("#password").val();
+            let city = $(event).closest("form").find("#city").val();
+            let district = $(event).closest("form").find("#district").val();
+            let ward = $(event).closest("form").find("#ward").val();
+            let address = $(event).closest("form").find("#address").val();
+            let role_id = $(event).closest("form").find("#role_name").val();
+            let status_id = $(event).closest("form").find("#status_name").val();
+            let branch_id = $(event).closest("form").find("#branch_name").val();
+            let data = {
+                full_name: full_name,
+                phone_number: phone_number,
+                email: email,
+                password: password,
+                city: city,
+                district: district,
+                ward: ward,
+                address: address,
+                role_name: role_id,
+                status_name: status_id,
+                branch_name: branch_id
+            };
+            $.ajax({
+                //url is which request to sent
+                url: "/Accounts/SignupDB",
+                //dataType is type of response to receive back, ex: JSON,XML,...
+                dataType: "text",
+                //data is parameters to send with url, ex: {id: "user1"}
+                data: data,
+                //type is request type, ex: GET to retrieve data, POST to save data,...
+                type: "POST",
+                //when request success, it's will execute function write inside 'success' block,
+                //data is which retrieved(if exists) from request
+                complete: function (jqXHR) {
+                    alert(jqXHR.statusText);
+                }
+            });
+        }
     }
 </script>
 

@@ -107,17 +107,24 @@ namespace E_Commerce.Controllers
                 if (!string.IsNullOrEmpty(checkEmailExist))
                 {
                     //Alert("This email already Exist! Please choose another email!");
-                    return new HttpStatusCodeResult(HttpStatusCode.Conflict, "This email already Exist! Please choose another email!");
+                    return new HttpStatusCodeResult(HttpStatusCode.Conflict, "Please choose another email!");
                 }
-
-                //Save User Data   
-                LoginBusiness repoLogin = LoginBusiness.Instance;
-                repoLogin.Signup(model);
-
-                //Verification Email  
-                VerificationEmail(model.email, model.activation_code.ToString());
-                //Alert("Your account has been created successfully! Please check your email to validate your account.");
-                return new HttpStatusCodeResult(HttpStatusCode.Accepted, "Your account has been created successfully! Please check your email to validate your account!");
+                else {
+                    //Save User Data   
+                    LoginBusiness repoLogin = LoginBusiness.Instance;
+                    bool status=repoLogin.Signup(model);
+                    if (status == true)
+                    {
+                        //Verification Email  
+                        VerificationEmail(model.email, model.activation_code.ToString());
+                        //Alert("Your account has been created successfully! Please check your email to validate your account.");
+                        return new HttpStatusCodeResult(HttpStatusCode.OK, "Your account has been created successfully!");
+                    }
+                    else
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, "Something wrong while signup, please try again!");
+                    }
+                }
             }
             else
             {
@@ -155,7 +162,6 @@ namespace E_Commerce.Controllers
             ViewBag.Status = statusAccount;
             return View();
         }
-        [NonAction]
         public void VerificationEmail(string email, string activationCode)
         {
             var url = string.Format("/Accounts/ActivationAccount/{0}", activationCode);
@@ -165,7 +171,7 @@ namespace E_Commerce.Controllers
 
             msg.From = new MailAddress("duongnguyen5566@gmail.com");
             msg.To.Add(email);
-            msg.Subject = "Bep Banh Lau - Validate account";
+            msg.Subject = "E_Commerce - Validate account";
             msg.Body = "Please click on the following link in order to activate your account: " + link;
             msg.Priority = MailPriority.High;
 
