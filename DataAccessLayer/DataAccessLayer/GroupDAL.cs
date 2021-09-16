@@ -10,21 +10,21 @@ namespace DataAccessLayer
     {
         public static List<group> GetAllGroups()
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.groups.ToList();
             }
         }
         public static group GetGroupById(string groupId)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.groups.Where(p => p.id_group == groupId).FirstOrDefault();
             }
         }
         public static bool CreateNewGroup(group group)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -42,7 +42,7 @@ namespace DataAccessLayer
         }
         public static bool UpdateGroup(group us)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -66,7 +66,7 @@ namespace DataAccessLayer
         }
         public static bool DeleteGroup(string id)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try

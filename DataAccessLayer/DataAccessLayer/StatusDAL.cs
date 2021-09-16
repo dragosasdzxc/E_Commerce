@@ -10,21 +10,21 @@ namespace DataAccessLayer
     {
         public static List<status> GetAllStatus()
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.status.ToList();
             }
         }
         public static status GetStatusById(string statusId)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.status.Where(p => p.id_status == statusId).FirstOrDefault();
             }
         }
         public static bool CreateNewStatus(status stat)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -42,7 +42,7 @@ namespace DataAccessLayer
         }
         public static bool UpdateStatus(status us)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -67,7 +67,7 @@ namespace DataAccessLayer
         }
         public static bool DeleteStatus(string id)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try

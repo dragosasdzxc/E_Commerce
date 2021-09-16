@@ -10,21 +10,21 @@ namespace DataAccessLayer.DataAccessLayer
     {
         public static List<product> GetAllProducts()
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.products.ToList();
             }
         }
         public static product GetProductById(string productId)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.products.Where(p => p.id_product == productId).FirstOrDefault();
             }
         }
         public static bool CreateNewProduct(product product)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -42,7 +42,7 @@ namespace DataAccessLayer.DataAccessLayer
         }
         public static bool UpdateProduct(product us)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -74,7 +74,7 @@ namespace DataAccessLayer.DataAccessLayer
         }
         public static bool DeleteProduct(string id)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try

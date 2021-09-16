@@ -10,21 +10,21 @@ namespace DataAccessLayer
     {
         public static List<role> GetAllRoles()
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.roles.ToList();
             }
         }
         public static role GetRoleById(string RoleId)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.roles.Where(p => p.id_role == RoleId).FirstOrDefault();
             }
         }
         public static bool CreateNewRole(role Role)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -42,7 +42,7 @@ namespace DataAccessLayer
         }
         public static bool UpdateRole(role role)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -66,7 +66,7 @@ namespace DataAccessLayer
         }
         public static bool DeleteRole(string id)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try

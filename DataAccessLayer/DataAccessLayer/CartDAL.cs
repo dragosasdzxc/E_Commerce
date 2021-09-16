@@ -10,21 +10,21 @@ namespace DataAccessLayer.DataAccessLayer
     {
         public static List<cart> GetAllCarts()
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.carts.ToList();
             }
         }
         public static cart GetCartById(string cartId)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.carts.Where(p => p.id_cart == cartId).FirstOrDefault();
             }
         }
         public static bool CreateNewCart(cart cart)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -42,7 +42,7 @@ namespace DataAccessLayer.DataAccessLayer
         }
         public static bool UpdateCart(cart us)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -67,7 +67,7 @@ namespace DataAccessLayer.DataAccessLayer
         }
         public static bool DeleteCart(string id)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try

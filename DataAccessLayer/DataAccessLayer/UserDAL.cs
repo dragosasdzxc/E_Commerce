@@ -10,21 +10,21 @@ namespace DataAccessLayer
     {
         public static List<user> GetAllUsers()
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.users.ToList();
             }
         }
         public static user GetUserById(string userId)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.users.Where(p => p.id_user == userId).FirstOrDefault();
             }
         }
         public static bool CreateNewUser(user user)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -42,7 +42,7 @@ namespace DataAccessLayer
         }
         public static bool UpdateUser(user us)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -77,7 +77,7 @@ namespace DataAccessLayer
         }
         public static bool DeleteUser(string id)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try

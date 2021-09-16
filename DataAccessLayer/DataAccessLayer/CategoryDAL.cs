@@ -10,21 +10,21 @@ namespace DataAccessLayer.DataAccessLayer
     {
         public static List<category> GetAllCategories()
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.categories.ToList();
             }
         }
         public static category GetCategoryById(string categoryId)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.categories.Where(p => p.id_category == categoryId).FirstOrDefault();
             }
         }
         public static bool CreateNewCategory(category category)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -42,7 +42,7 @@ namespace DataAccessLayer.DataAccessLayer
         }
         public static bool UpdateCategory(category us)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -67,7 +67,7 @@ namespace DataAccessLayer.DataAccessLayer
         }
         public static bool DeleteCategory(string id)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try

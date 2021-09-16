@@ -10,21 +10,21 @@ namespace DataAccessLayer.DataAccessLayer
     {
         public static List<bill> GetAllBills()
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.bills.ToList();
             }
         }
         public static bill GetBillById(string billId)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 return DbContext.bills.Where(p => p.id_bill == billId).FirstOrDefault();
             }
         }
         public static bool CreateNewBill(bill bill)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -42,7 +42,7 @@ namespace DataAccessLayer.DataAccessLayer
         }
         public static bool UpdateBill(bill us)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
@@ -68,7 +68,7 @@ namespace DataAccessLayer.DataAccessLayer
         }
         public static bool DeleteBill(string id)
         {
-            using (var DbContext = new bepbanhlauEntities())
+            using (var DbContext = new bepbanhlauEntities1())
             {
                 bool status;
                 try
