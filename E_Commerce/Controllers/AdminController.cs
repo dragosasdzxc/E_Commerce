@@ -11,9 +11,22 @@ namespace E_Commerce.Controllers
     {        
         public ActionResult Home()
         {
+            return View();
+        }
+
+        public ActionResult ViewUser() {
             AdminBusiness repo = AdminBusiness.Instance;
-            List<user_view> res= repo.GetAllUsers();
+            List<user_view> res = repo.GetAllUsers();
             return View(res);
+        }
+        public ActionResult CreateUser() {
+            return View();
+        }
+        public ActionResult EditUser() {
+            return View();
+        }
+        public ActionResult DeleteUser() {
+            return View();
         }
     }
 }

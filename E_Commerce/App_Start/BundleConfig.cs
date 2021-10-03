@@ -20,7 +20,7 @@ namespace E_Commerce
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+            bundles.Add(new Bundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
             //add this in Include() if want to use default css: "~/Content/site.css"
             bundles.Add(new StyleBundle("~/Content/css").Include(

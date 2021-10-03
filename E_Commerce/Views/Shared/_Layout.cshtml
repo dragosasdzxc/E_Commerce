@@ -42,18 +42,18 @@
             </div>
         </div>*@
     <header>
-        <nav style="border-bottom:1px solid #8cc63f;">
+        <nav>
             <div class="row">
-                <div class="logo col-lg-3 col-md-12 col-sm-12 col-xs-12" title="Dụng cụ và nguyên liệu nấu ăn (lậu)">
+                <div class="logo col-lg-2 col-md-12 col-sm-12 col-xs-12" title="Dụng cụ và nguyên liệu nấu ăn (lậu)">
                     <a href="@Url.Action("Index","Home")"><img src="~/Content/Images/BBL_Clone.png" /></a>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                     <div class="search row">
-                        <div class="search_bar">
+                        <div class="search_bar col-lg-8 col-md-6 col-sm-12 col-xs-12">
                             <input type="text" name="search_value" class="search_value" placeholder="Enter the product name you want to buy..." value="" />
                             <button class="search_btn"><i class="fa fa-search"></i></button>
                         </div>
-                        <a href="tel:0398061692">HOTLINE<span class="hotline">0398061692</span></a>
+                        <div class="hotline col-lg-4 col-md-6 d-none d-sm-block d-sm-none d-md-block"><a href="tel:0398061692" style="color: #491e12;">HOTLINE<span style="color:white;"> 0398061692</span></a></div>
                     </div>
                     <div class="branch row">
                         @foreach (var item in ViewBag.listBranch)
@@ -62,27 +62,26 @@
                         }
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
                     @if (User.Identity.IsAuthenticated)
                     {
                         <div class="action row">
-                            <span style="float:left;">Hello: </span><br />
-                            <a class="col-lg-3 col-md-12 col-sm-12 col-xs-12" href="#">@User.Identity.Name</a>
-
+                            <span>Hello: </span>
+                            <a class="col-lg-8 col-md-12 col-sm-12 col-xs-12" href="#">@User.Identity.Name</a>
                         </div>
                         <div class="cart row">
-                            <a class="fa fa-shopping-cart col-12" style="float:left;"><span style="font-family:sans-serif!important;">Cart</span></a>
-                            <a class="col-lg-3 col-md-12 col-sm-12 col-xs-12" href="@Url.Action("Logout", "Accounts")">Logout</a>
+                            <a class="fa fa-shopping-cart col-12 col-lg-5 col-md-12 col-sm-12 col-xs-12" style="float:left;"><span style="font-family:sans-serif;"> Cart</span></a>
+                            <a class="col-lg-5 col-md-12 col-sm-12 col-xs-12" href="@Url.Action("Logout", "Accounts")">Logout</a>
                         </div>
                     }
                     else
                     {
                         <div class="action row">
-                            <a class="col-lg-3 col-md-12 col-sm-12 col-xs-12" href="@Url.Action("Login", "Accounts")">Login</a>
-                            <a class="col-lg-3 col-md-12 col-sm-12 col-xs-12" href="@Url.Action("Signup", "Accounts")">Register</a>
+                            <a class="col-lg-5 col-md-12 col-sm-12 col-xs-12" href="@Url.Action("Login", "Accounts")">Login</a>
+                            <a class="col-lg-5 col-md-12 col-sm-12 col-xs-12" href="@Url.Action("Signup", "Accounts")">Register</a>
                         </div>
                         <div class="cart row">
-                            <a class="fa fa-shopping-cart col-12" style="float:left;"><span style="font-family:sans-serif!important;">Cart</span></a>
+                            <a class="fa fa-shopping-cart col-12" style="float:left;"><span style="font-family:sans-serif!important;"> Cart</span></a>
                         </div>
                     }
                 </div>
@@ -91,7 +90,6 @@
     </header>
     <div class="container body-content col-12">
         @RenderBody()
-        <hr />
     </div>
     <footer id="footer">
         <div class="footer-inner">
@@ -103,7 +101,7 @@
                                 <strong>KUPKACE SHOP (LẬU) - NGUYÊN LIỆU &amp; DỤNG CỤ LÀM BÁNH</strong>
                             </p>
                             <p>
-                                <span style="color:#40E0D0;">
+                                <span style="color: #8cc63f;">
                                     <b>Hoạt động: T2-T7: 8h - 20h&nbsp; &nbsp; CN:8h-18h</b>
                                 </span>
                             </p>
@@ -124,9 +122,9 @@
                                 </span>
                             </p><p>
                                 <a href="https://www.facebook.com/bepbanhkk">
-                                    <img alt="" src="" style="width: 41px; height: 41px;">
+                                    <img alt="E_Commerce" src="~/Content/Images/BBL_Clone.png" style="width: 40px; height: 40px;">
                                 </a>&nbsp;<a href="https://shopee.vn/bepbanhkk">
-                                    <img alt="Shopee Bếp Bánh" src="">
+                                    <img alt="E_Commerce" src="~/Content/Images/BBL_Clone.png" style="width: 40px; height: 40px;">
                                 </a>
                             </p>
                         </div>
@@ -142,22 +140,22 @@
                             <ul class="menu list-unstyled" id="menufooter">
                                 <li class="">
                                     <a class="" title="CHÍNH SÁCH BẢO MẬT THÔNG TIN" href="">
-                                        <span class="">CHÍNH SÁCH BẢO MẬT THÔNG TIN</span>
+                                        <span class="" style="color: #8cc63f;">CHÍNH SÁCH BẢO MẬT THÔNG TIN</span>
                                     </a>
                                 </li>
                                 <li class="">
                                     <a class="" title="CHÍNH SÁCH BẢO HÀNH VÀ ĐỔI TRẢ" href="">
-                                        <span class="">CHÍNH SÁCH BẢO HÀNH VÀ ĐỔI TRẢ</span>
+                                        <span class="" style="color: #8cc63f;">CHÍNH SÁCH BẢO HÀNH VÀ ĐỔI TRẢ</span>
                                     </a>
                                 </li>
                                 <li class="">
                                     <a class="" title="CHÍNH SÁCH GIAO HÀNG VÀ THANH TOÁN" href="">
-                                        <span class="">CHÍNH SÁCH GIAO HÀNG VÀ THANH TOÁN</span>
+                                        <span class="" style="color: #8cc63f;">CHÍNH SÁCH GIAO HÀNG VÀ THANH TOÁN</span>
                                     </a>
                                 </li>
                                 <li class="">
                                     <a class="" title="KIỂM TRA ĐƠN HÀNG ĐÃ MUA" href="">
-                                        <span class="">KIỂM TRA ĐƠN HÀNG ĐÃ MUA</span>
+                                        <span class="" style="color: #8cc63f;">KIỂM TRA ĐƠN HÀNG ĐÃ MUA</span>
                                     </a>
                                 </li>
                             </ul>
@@ -193,7 +191,7 @@
                         <div class="module-content">
                             <p>Giấy chứng nhận Đăng ký Kinh doanh số 99M99999 do Uỷ Ban Nhân Dân Quận Ảo Tưởng cấp ngày 01/01/0001</p>
                             <p>
-                                <img alt="" src="" style="width: 200px; height: 76px; float: right;">
+                                <img alt="E_Commerce" src="~/Content/Images/BBL_Clone.png" style="width: 200px; height: 76px; float: right;">
                             </p>
                         </div>
                     </div>

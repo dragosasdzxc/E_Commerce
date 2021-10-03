@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AutoMapper;
+using E_Commerce.Models.Common;
 using E_Commerce.Models.DAO;
+using Newtonsoft.Json.Linq;
 
 namespace E_Commerce.Models.Config.Map
 {

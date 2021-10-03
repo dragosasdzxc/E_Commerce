@@ -36,37 +36,18 @@ namespace E_Commerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (Membership.ValidateUser(model.phone_number, Shared.EncryptString(Shared.developKey, model.password)))
+                LoginBusiness repoLogin = LoginBusiness.Instance;
+                string ticket = repoLogin.Login(model);
+                //if ticket is empty or null, retirn to losin page
+                if (ticket == "empty" || ticket == null || ticket == "")
                 {
-                    var user = (CustomMembershipUser)Membership.GetUser(model.phone_number, false);
-                    if (user != null)
-                    {
-                        RoleDAO repoRole = RoleDAO.Instance;
-                        string[] roleLists = user.Roles;
-                        List<string> userRoles = new List<string>();
-                        foreach (var role in roleLists)
-                        {
-                            string roleName = repoRole.GetById(role).name_role;
-                            userRoles.Add(roleName);
-                        }
-                        CustomSerializeModel userModel = new Models.CustomSerializeModel()
-                        {
-                            UserId = user.UserId,
-                            FullName = user.FullName,
-                            RoleName = userRoles,
-                        };
-
-                        string userData = JsonConvert.SerializeObject(userModel);
-                        FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket
-                            (
-                            1, model.phone_number, DateTime.Now, DateTime.Now.AddDays(7), false, userData
-                            );
-
-                        string enTicket = FormsAuthentication.Encrypt(authTicket);
-                        HttpCookie faCookie = new HttpCookie("CookieAuth", enTicket);
-                        Response.Cookies.Add(faCookie);
-                    }
-
+                    Alert("Something Wrong : Your account does not exist!");
+                    return RedirectToAction("Login", "Accounts");
+                }
+                //else add ticket contain user information to cookie adn return to previous url(if exist)
+                else {
+                    HttpCookie faCookie = new HttpCookie("CookieAuth", ticket);
+                    Response.Cookies.Add(faCookie);
                     if (Url.IsLocalUrl(returnUrl))
                     {
                         return Redirect(returnUrl);
@@ -81,8 +62,9 @@ namespace E_Commerce.Controllers
                     }
                 }
             }
-            Alert("Something Wrong : Phone number or password invalid ^_^ ");
-            return RedirectToAction("Login", "Accounts"); ;
+            //return to login page if user login invalid
+            Alert("Something Wrong : Phone number or password invalid!");
+            return RedirectToAction("Login", "Accounts");
         }
         public ActionResult Signup(user_view model)
         {
